@@ -1,6 +1,6 @@
 <?php
 
-/*$username = "Лиля Красотулька";
+$username = "Лиля Красотулька";
 
 
 
@@ -19,7 +19,7 @@ echo "<br>";
 $count = 28;
 
 echo $count
-*/
+
 
 
 
