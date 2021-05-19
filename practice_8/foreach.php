@@ -12,13 +12,22 @@ foreach ($arr as $el) {
 } 
     
 
+//Дан массив с элементами 1, 2, 3, 4, 5. С помощью цикла foreach найдите сумму элементов этого массива. Запишите ее в переменную $result.
 
 
 
+$result = 0;
+
+$arr = [1, 2, 3, 4, 5];
 
 
+foreach ($arr as $el) {
+    $result = $result + $el;
+}
 
+echo $result;
 
+echo '</br>';
 
 
 ?>
