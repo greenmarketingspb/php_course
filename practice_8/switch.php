@@ -19,7 +19,7 @@ switch ($num) {
         break;            
 }
 
-echo $result
+echo $result;
 
 
 
@@ -27,7 +27,7 @@ echo $result
 
 
 
-$beer = 'Hoegaarden';
+$beer = 'Baltika';
 
 
 switch ($beer) {
@@ -36,7 +36,7 @@ switch ($beer) {
         echo 'Good choice!';
         break;
     case 'Baltika':
-        echo 'Do not do that!';
+        echo 'Don\'t do that!';
         break;
     default:
     echo 'It is worth a try';
