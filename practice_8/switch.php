@@ -23,6 +23,31 @@ echo $result
 
 
 
+//Переменная $beer может принимать одно из значений: Hoegaarden, Guinness, Baltika, остальные марки пива на ваш выбор. Если она имеет значение Hoegaarden или Guinness, то выводим ‘Good choice!’, если имеет значение Baltika выводим ‘Don't do that!’ для всех остальных значений выводим ‘It’s worth a try’
+
+
+
+$beer = 'Hoegaarden';
+
+
+switch ($beer) {
+    case 'Hoegaarden':
+    case 'Guinness':
+        echo 'Good choice!';
+        break;
+    case 'Baltika':
+        echo 'Do not do that!';
+        break;
+    default:
+    echo 'It is worth a try';
+
+
+}
+echo '</br>';
+
+
+
+
 
 
 
