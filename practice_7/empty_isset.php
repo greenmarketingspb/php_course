@@ -18,7 +18,7 @@ echo '</br>';
 
 $a = 1;
 
-if (isset($a)) {
+if (!empty($a)) {
     echo true;
 
 } else {
@@ -34,7 +34,7 @@ echo '</br>';
 
 $a = 3;
 
-if ($a == true) {
+if (isset($a)) {
     echo true;
 } else {
     echo false;
@@ -48,7 +48,7 @@ echo '</br>';
 
 $a = null;
 
-if ($a == false) {
+if (!isset($a)) {
     echo true;
 } else {
     echo false;
@@ -57,7 +57,8 @@ if ($a == false) {
 
 echo '</br>';
 
-//задать вопрос
+
+
 
 
 
