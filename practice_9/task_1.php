@@ -32,21 +32,21 @@
 
 
 
-echo currentday();
+// echo currentday();
 
-function currentday() {
-    $arr = [
-        1 => 'Monday',
-        2 => 'Tuesday',
-        3 => 'Wednesday',
-        4 => 'Thursday',
-        5 => 'Friday',
-        6 => 'Saturday',
-        7 => 'Sunday'
-    ];
+// function currentday() {
+//     $arr = [
+//         1 => 'Monday',
+//         2 => 'Tuesday',
+//         3 => 'Wednesday',
+//         4 => 'Thursday',
+//         5 => 'Friday',
+//         6 => 'Saturday',
+//         7 => 'Sunday'
+//     ];
     
 
-}
+// }
 
 
 
@@ -70,6 +70,19 @@ function currentday() {
 // }
 
 // echo '</br>';
+
+$year = date('Y');
+
+$month = date('m');
+
+
+$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+$daysInMonth = range(1, 30);
+
+var_dump($daysInMonth);
+
+
 
 
 ?>
