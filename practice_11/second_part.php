@@ -25,13 +25,15 @@ class Employee
        return $this->age > 18 ? true : false;
         
     }
-    public function doubleSalary() 
+
+    public function doubleSalary(): void
     {
-        return $this->salary * 2;
+         $this->salary * 2;
     }
-    public function setAge() 
+
+    public function setAge(int $newAge): void 
     {
-        return $this->age = 35;
+        $this->age = $newAge;
     }
 }
 
@@ -44,7 +46,7 @@ $firstEmployee->salary = 16000;
 
 $secondEmployee = new Employee;
 $secondEmployee->salary = 3000;
-$secondEmployee->age;
+$secondEmployee->age = 13;
 
 echo $firstEmployee->checkAge();
 
@@ -56,7 +58,11 @@ echo '<br>';
 
 echo $secondEmployee->getAge();
 
+echo '<br>';
 
+$firstEmployee->setAge(35);
+
+echo $firstEmployee->getAge();
 
 
 //Сделайте в классе Employee метод getName, который будет возвращать имя работника
