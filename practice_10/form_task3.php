@@ -2,8 +2,10 @@
 
 if (isset($_POST['age'])) {
     $age = $_POST['age'];
-} else $age = "(Не введено)";
+} else $age = "";
 
+
+if (empty($_POST['age'])) {
 echo <<<_END
 
 <html>
@@ -11,7 +13,6 @@ echo <<<_END
     <title>Third task</title>
   </head>
     <body>
-      You are $age years old<br>
       <form method="post" action="form_task3.php">
       How old are you?
       <input type="text" name="age">
@@ -20,3 +21,15 @@ echo <<<_END
     </body>
 </html>
 _END;
+} else {
+    echo "Тебе $age";
+}
+
+
+?>
+
+
+
+
+
+

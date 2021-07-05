@@ -1,53 +1,66 @@
 
-<table>
-
-
 <?php
 
-$year = date('Y');
+declare(strict_types=1);
 
-$month = date('m');
+class Month
+{
+    public array $week = [
+        'Sun',
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thu',
+        'Fri',
+        'Sat'
+    ];
+
+    public int $daysInMonth;
+
+    public string $dayOfWeek;
 
 
+    public function __construct()
+    {
+        $year = (int) date('Y');
+        $month = (int) date('m');
+        $this->$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
-$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        $firstDayOfMonthTimestamp = mktime(0, 0, 0, $month, 1, $year);
+        $this->$dayOfWeek = date('w', $firstDayOfMonthTimestamp);
+    }
 
-$firstDayOfMonthTimestamp = mktime(0, 0, 0, $month, 1, $year);
-$dayOfWeek = date('w', $firstDayOfMonthTimestamp);
+    public function showMonth()
+    {
+        echo '<table>';
+        echo '<tr>';
 
-$week = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat'
-];
-
-echo '<tr>';
-
-for ($i = 0; $i < $dayOfWeek; $i++) {
+for ($i = 0; $i < $this->$dayOfWeek; $i++) {
     echo "<td></td>";
 }
 
-foreach ($week as $dayName) {
+foreach ($this->$week as $dayName) {
     echo "<td>$dayName</td>";
 }
 
-
 echo '<tr></tr>';
 
-for ($day = 1; $day <= $daysInMonth; $day++) {
+for ($day = 1; $day <= $this->$daysInMonth; $day++) {
     echo "<td><a href=day?dayOfMonth=$day>$day</a></td>";
-    if (($day +$dayOfWeek) % 7 === 0) {
+    if (($day + $this->$dayOfWeek) % 7 === 0) {
         echo '<tr></tr>';
 
     }
 }
 
-
 echo '</tr>';
-?>
+echo '</table>';
 
-</table>
+    }
+}
+
+
+
+
+
+?>
