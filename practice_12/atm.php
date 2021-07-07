@@ -4,7 +4,7 @@ class Atm
 {
     public int $cartNumber;
 
-    private array $userInfos = [
+    protected array $userInfos = [
         1111 => [
             'name' => 'Vasya',
             'pin' => 1234,
@@ -22,8 +22,8 @@ class Atm
         ],
     ];
 
-        private array $currentUser;
-        private bool $pinVerified = false;
+        protected array $currentUser;
+        protected bool $pinVerified = false;
 
         public function insertCard(int $cardNumber): void 
         {
@@ -57,19 +57,19 @@ class Atm
                 $this->currentUser['balance'] = $this->currentUser['balance'] - $amount;
 
                 echo sprintf(
-                    'Your current balance is %s ',
+                    'Your current balance is %s <br>',
                 $this->currentUser['balance']);           
             } else {
                 die('insufficient funds');
             }
         }
         
-        private function checkPin(int $pin): bool
+        protected function checkPin(int $pin): bool
         {
             return $this->currentUser['pin'] === $pin;
         }
 
-        private function checkIfUserExist($cardNumber): bool 
+        protected function checkIfUserExist($cardNumber): bool 
         {
             return isset($this->userInfos[$cardNumber]);
                 
@@ -86,10 +86,25 @@ $atm->checkBalance();
 $atm->withdrawMoney(110);
 
 
+class Terminal extends Atm 
+{
+    public function topUpBalance(int $deposit): void 
+    {
+        $this->currentUser['balance'] = $this->currentUser['balance'] + $deposit;
+        echo sprintf(
+            'Your current balance is %s <br>',
+                $this->currentUser['balance']);
+    }
+}
 
 
-
-
+$terminal = new Terminal;
+$terminal->insertCard(3333);
+$terminal->insertPin(1212);
+$terminal->checkBalance();
+$terminal->withdrawMoney(110);
+$terminal->topUpBalance(300);
+$terminal->withdrawMoney(790);
 
 
 
